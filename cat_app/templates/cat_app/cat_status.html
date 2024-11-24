@@ -1,0 +1,20 @@
+<html>
+<body>
+    <h1>Информация о коте</h1>
+    <img src="{% static 'images/'|add:cat.image %}" alt="Cat Image">
+    <p>Имя: {{ cat.name }}</p>
+    <p>Возраст: {{ cat.age }} год</p>
+    <p>Уровень сытости: {{ cat.hunger }}</p>
+    <p>Уровень счастья: {{ cat.happiness }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <label for="action">Выберите действие:</label>
+        <select id="action" name="action">
+            <option value="feed">Покормить кота</option>
+            <option value="play">Поиграть с котом</option>
+            <option value="sleep">Уложить спать кота</option>
+        </select>
+        <button type="submit">Подтвердить</button>
+    </form>
+</body>
+</html>
